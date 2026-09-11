@@ -88,10 +88,7 @@ const mobileProjects: Project[] = [
     image: "/images/eatzy.jpg",
 
     images: [
-    "/images/dampingin1.jpg",
-    "/images/dampingin2.jpg",
-    "/images/dampingin3.jpg",
-    "/images/dampingin4.jpg",
+
   ],
 
     description:
@@ -105,10 +102,7 @@ const mobileProjects: Project[] = [
     image: "/images/findcine.jpg",
 
     images: [
-    "/images/dampingin1.jpg",
-    "/images/dampingin2.jpg",
-    "/images/dampingin3.jpg",
-    "/images/dampingin4.jpg",
+ 
   ],
 
     description:
@@ -122,10 +116,7 @@ const mobileProjects: Project[] = [
     image: "/images/kelana.jpg",
 
     images: [
-    "/images/dampingin1.jpg",
-    "/images/dampingin2.jpg",
-    "/images/dampingin3.jpg",
-    "/images/dampingin4.jpg",
+
   ],
 
     description:
@@ -142,10 +133,7 @@ const websiteProjects: Project[] = [
     image: "/images/katalogaset.jpg",
 
     images: [
-    "/images/dampingin1.jpg",
-    "/images/dampingin2.jpg",
-    "/images/dampingin3.jpg",
-    "/images/dampingin4.jpg",
+
   ],
 
     description:
@@ -180,10 +168,7 @@ const websiteProjects: Project[] = [
     image: "/images/snapshot.jpg",
 
     images: [
-    "/images/dampingin1.jpg",
-    "/images/dampingin2.jpg",
-    "/images/dampingin3.jpg",
-    "/images/dampingin4.jpg",
+
   ],
 
     description:
@@ -269,6 +254,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
+    
       <div className="navbar-inner">
         <a href="#about" className="logo" onClick={closeMenu}>
           <span>BL</span>
@@ -327,6 +313,7 @@ function Navbar() {
 
 function AboutSection() {
   return (
+    
     <div id="about">
       {/* =================================================
           HERO / ABOUT INTRO
@@ -386,6 +373,10 @@ function AboutSection() {
 
         </div>
 
+<div className="portfolio-bubble">
+  <span className="portfolio-dot"></span>
+  Portfolio currently being updated
+</div>
         {/* HERO PHOTO */}
 
         <div className="hero-photo-wrapper">

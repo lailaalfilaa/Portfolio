@@ -28,6 +28,7 @@ type Project = {
   title: string;
   category: string;
   image: string;
+  images?: string[];
   description: string;
   tools: string[];
   process: string[];
@@ -61,6 +62,21 @@ const mobileProjects: Project[] = [
     title: "Dampingin",
     category: "Mobile App",
     image: "/images/dampingin.jpg",
+
+    images: [
+    "/images/dampingin1.jpg",
+    "/images/dampingin2.jpg",
+    "/images/dampingin3.jpg",
+    "/images/dampingin4.jpg",
+    "/images/dampingin5.jpg",
+    "/images/dampingin6.jpg",
+    "/images/dampingin7.jpg",
+    "/images/dampingin8.jpg",
+    "/images/dampingin9.jpg",
+    "/images/dampingin10.jpg",
+    "/images/dampingin11.jpg",
+  ],
+
     description:
       "Aplikasi mobile yang dirancang untuk membantu pengguna mendapatkan pendampingan secara lebih mudah, terstruktur, dan intuitif.",
     tools: ["Figma", "User Research", "User Flow", "Wireframing", "Prototype"],
@@ -70,6 +86,14 @@ const mobileProjects: Project[] = [
     title: "Eatzy",
     category: "Mobile App",
     image: "/images/eatzy.jpg",
+
+    images: [
+    "/images/dampingin1.jpg",
+    "/images/dampingin2.jpg",
+    "/images/dampingin3.jpg",
+    "/images/dampingin4.jpg",
+  ],
+
     description:
       "Konsep aplikasi mobile yang membantu pengguna menemukan pengalaman kuliner dengan interface yang sederhana dan mudah digunakan.",
     tools: ["Figma", "User Flow", "UI Design", "Prototyping"],
@@ -79,6 +103,14 @@ const mobileProjects: Project[] = [
     title: "FindCine",
     category: "Mobile App",
     image: "/images/findcine.jpg",
+
+    images: [
+    "/images/dampingin1.jpg",
+    "/images/dampingin2.jpg",
+    "/images/dampingin3.jpg",
+    "/images/dampingin4.jpg",
+  ],
+
     description:
       "Aplikasi mobile untuk membantu pengguna menemukan dan mengeksplorasi film berdasarkan kebutuhan serta preferensi mereka.",
     tools: ["Figma", "UX Research", "Wireframe", "UI Design", "Prototype"],
@@ -88,6 +120,14 @@ const mobileProjects: Project[] = [
     title: "Kelana",
     category: "Mobile App",
     image: "/images/kelana.jpg",
+
+    images: [
+    "/images/dampingin1.jpg",
+    "/images/dampingin2.jpg",
+    "/images/dampingin3.jpg",
+    "/images/dampingin4.jpg",
+  ],
+
     description:
       "Konsep aplikasi perjalanan yang dirancang untuk memberikan pengalaman eksplorasi destinasi secara lebih praktis dan terorganisir.",
     tools: ["Figma", "User Flow", "Wireframe", "High-Fidelity"],
@@ -100,6 +140,14 @@ const websiteProjects: Project[] = [
     title: "Katalog Aset",
     category: "Website",
     image: "/images/katalogaset.jpg",
+
+    images: [
+    "/images/dampingin1.jpg",
+    "/images/dampingin2.jpg",
+    "/images/dampingin3.jpg",
+    "/images/dampingin4.jpg",
+  ],
+
     description:
       "Website katalog aset yang dirancang untuk membantu pengelolaan dan pencarian data aset secara lebih terstruktur.",
     tools: ["Figma", "UI Design", "Design System", "Prototype"],
@@ -109,6 +157,18 @@ const websiteProjects: Project[] = [
     title: "Dashboard Sistem Input Data",
     category: "Dashboard",
     image: "/images/dashboard.jpg",
+
+    images: [
+    "/images/dkb.jpg",
+    "/images/dkb1.jpg",
+    "/images/dkb2.jpg",
+    "/images/dkb3.jpg",
+    "/images/dkb4.jpg",
+    "/images/dkb5.jpg",
+    "/images/dkb6.jpg",
+    "/images/dkb7.jpg",
+  ],
+
     description:
       "Dashboard untuk mendukung proses input dan pengelolaan data dengan tampilan yang lebih terstruktur dan mudah dipahami.",
     tools: ["Figma", "Dashboard Design", "UI Design", "Prototype"],
@@ -118,6 +178,14 @@ const websiteProjects: Project[] = [
     title: "Snapshoot",
     category: "Website",
     image: "/images/snapshot.jpg",
+
+    images: [
+    "/images/dampingin1.jpg",
+    "/images/dampingin2.jpg",
+    "/images/dampingin3.jpg",
+    "/images/dampingin4.jpg",
+  ],
+
     description:
       "Konsep website dengan pendekatan visual editorial yang mengutamakan hierarchy, readability, dan pengalaman pengguna.",
     tools: ["Figma", "Visual Design", "UI Design", "Prototype"],
@@ -845,52 +913,76 @@ function ProjectModal({
   project: Project;
   onClose: () => void;
 }) {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const projectImages = project.images?.length
+    ? project.images
+    : [project.image];
+
+  const nextImage = () => {
+    setCurrentImage((current) =>
+      current === projectImages.length - 1 ? 0 : current + 1
+    );
+  };
+
+  const previousImage = () => {
+    setCurrentImage((current) =>
+      current === 0 ? projectImages.length - 1 : current - 1
+    );
+  };
+
   return (
-    <div
-      className="project-modal-overlay"
-      onClick={onClose}
-    >
+    <div className="gallery-modal-overlay" onClick={onClose}>
       <div
-        className="project-modal"
+        className="gallery-modal"
         onClick={(event) => event.stopPropagation()}
       >
+        {/* CLOSE */}
         <button
-          className="modal-close"
+          className="gallery-modal-close"
           onClick={onClose}
-          aria-label="Close project"
+          aria-label="Close"
         >
           ×
         </button>
 
-        <div className="modal-image">
-          <img src={project.image} alt={project.title} />
-        </div>
+        {/* IMAGE */}
+        <img
+          className="gallery-modal-image"
+          src={projectImages[currentImage]}
+          alt={`${project.title} ${currentImage + 1}`}
+        />
 
-        <div className="modal-content">
-          <span>{project.category.toUpperCase()}</span>
+        {/* LEFT */}
+        {projectImages.length > 1 && (
+          <button
+            className="gallery-modal-arrow gallery-modal-prev"
+            onClick={previousImage}
+            aria-label="Previous image"
+          >
+            ←
+          </button>
+        )}
 
-          <h2>{project.title}</h2>
+        {/* RIGHT */}
+        {projectImages.length > 1 && (
+          <button
+            className="gallery-modal-arrow gallery-modal-next"
+            onClick={nextImage}
+            aria-label="Next image"
+          >
+            →
+          </button>
+        )}
 
-          <p>{project.description}</p>
-
-          <div className="modal-tools">
-            {project.tools.map((tool) => (
-              <span key={tool}>{tool}</span>
-            ))}
+        {/* NUMBER */}
+        {projectImages.length > 1 && (
+          <div className="gallery-modal-counter">
+            {String(currentImage + 1).padStart(2, "0")}
+            {" / "}
+            {String(projectImages.length).padStart(2, "0")}
           </div>
-
-          <div className="modal-process">
-            {project.process.map((step, index) => (
-              <div key={step}>
-                <small>
-                  {String(index + 1).padStart(2, "0")}
-                </small>
-
-                <strong>{step}</strong>
-              </div>
-            ))}
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
@@ -1005,13 +1097,12 @@ function AdditionalExperienceSection() {
 
         <div className="additional-experience-heading">
           <h2>
-            Additional <i>Experience.</i>
+            Additional <i>Experience</i>
           </h2>
 
           <p>
-            Pengalaman di luar pekerjaan utama yang turut
-            membentuk cara saya bekerja, berkolaborasi,
-            dan berkomunikasi.
+            Berbagai pengalaman yang membantu mengembangkan
+            kemampuan komunikasi, kerja sama, kreativitas, dan adaptasi.
           </p>
         </div>
 
@@ -1340,20 +1431,49 @@ function ContactSection() {
   return (
     <section id="contact" className="cta-section">
       <div className="cta-inner">
-        <p>LET&apos;S CREATE SOMETHING MEANINGFUL</p>
+        <p>GET IN TOUCH</p>
 
-        <h2>
-          Have a project
-          <br />
-          <i>in mind?</i>
-        </h2>
+<h2>
+  Let&apos;s create
+  <br />
+  <i>something good.</i>
+</h2>
 
-        <a
-          className="cta-button"
-          href="mailto:your@email.com"
-        >
-          Let&apos;s talk <span>↗</span>
-        </a>
+        <div className="contact-links">
+          <a
+            href="https://wa.me/6281350753080"
+            target="_blank"
+            rel="noreferrer"
+            className="contact-link"
+          >
+            <span className="contact-label">WHATSAPP</span>
+            <span className="contact-value">
+              0813 5075 3080 <b>↗</b>
+            </span>
+          </a>
+
+          <a
+            href="https://instagram.com/lailalfila"
+            target="_blank"
+            rel="noreferrer"
+            className="contact-link"
+          >
+            <span className="contact-label">INSTAGRAM</span>
+            <span className="contact-value">
+              @lailalfila <b>↗</b>
+            </span>
+          </a>
+
+          <a
+            href="mailto:baiqlailaalfilaa@gmail.com"
+            className="contact-link"
+          >
+            <span className="contact-label">EMAIL</span>
+            <span className="contact-value">
+              baiqlailaalfilaa@gmail.com <b>↗</b>
+            </span>
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -1372,9 +1492,6 @@ function Footer() {
           <strong>Baiq Laila Alfila</strong>
         </div>
 
-        <p>
-          UI/UX Designer · Product Design · User Experience
-        </p>
       </div>
 
       <div className="footer-links">

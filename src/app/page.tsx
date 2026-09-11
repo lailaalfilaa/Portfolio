@@ -88,7 +88,17 @@ const mobileProjects: Project[] = [
     image: "/images/eatzy.jpg",
 
     images: [
-
+      "/images/eatzy1.jpg",
+      "/images/eatzy2.jpg",
+      "/images/eatzy3.jpg",
+      "/images/eatzy4.jpg",
+      "/images/eatzy5.jpg",
+      "/images/eatzy6.jpg",
+      "/images/eatzy7.jpg",
+      "/images/eatzy8.jpg",
+      "/images/eatzy9.jpg",
+      "/images/eatzy10.jpg",
+      "/images/eatzy11.jpg",
   ],
 
     description:
@@ -102,7 +112,17 @@ const mobileProjects: Project[] = [
     image: "/images/findcine.jpg",
 
     images: [
- 
+      "/images/findcine1.jpg",
+      "/images/findcine2.jpg",
+      "/images/findcine3.jpg",
+      "/images/findcine4.jpg",
+      "/images/findcine5.jpg",
+      "/images/findcine6.jpg",
+      "/images/findcine7.jpg",
+      "/images/findcine8.jpg",
+      "/images/findcine9.jpg",
+      "/images/findcine10.jpg",
+      "/images/findcine11.jpg",
   ],
 
     description:
@@ -116,7 +136,18 @@ const mobileProjects: Project[] = [
     image: "/images/kelana.jpg",
 
     images: [
-
+      "/images/kelana1.jpg",
+      "/images/kelana2.jpg",
+      "/images/kelana3.jpg",
+      "/images/kelana4.jpg",
+      "/images/kelana5.jpg",
+      "/images/kelana6.jpg",
+      "/images/kelana7.jpg",
+      "/images/kelana8.jpg",
+      "/images/kelana9.jpg",
+      "/images/kelana10.jpg",
+      "/images/kelana11.jpg",
+      "/images/kelana12.jpg",
   ],
 
     description:
@@ -133,7 +164,14 @@ const websiteProjects: Project[] = [
     image: "/images/katalogaset.jpg",
 
     images: [
-
+      "/images/katalogaset1.jpg",
+      "/images/katalogaset2.jpg",
+      "/images/katalogaset3.jpg",
+      "/images/katalogaset4.jpg",
+      "/images/katalogaset5.jpg",
+      "/images/katalogaset6.jpg",
+      "/images/katalogaset7.jpg",
+      "/images/katalogaset8.jpg",
   ],
 
     description:
@@ -168,7 +206,8 @@ const websiteProjects: Project[] = [
     image: "/images/snapshot.jpg",
 
     images: [
-
+      "/images/snapshoot1.jpg",
+      "/images/snapshoot2.jpg",
   ],
 
     description:
@@ -373,10 +412,6 @@ function AboutSection() {
 
         </div>
 
-<div className="portfolio-bubble">
-  <span className="portfolio-dot"></span>
-  Portfolio currently being updated
-</div>
         {/* HERO PHOTO */}
 
         <div className="hero-photo-wrapper">
@@ -1510,6 +1545,11 @@ export default function Home() {
   return (
     <>
       <Navbar />
+
+      <div className="portfolio-bubble">
+  <span className="portfolio-dot"></span>
+  Portfolio currently being updated
+</div>
 
       <main>
 

@@ -3112,6 +3112,111 @@ img {
 }
 
 /* =========================================================
+   ADDITIONAL EXPERIENCE - IMAGE FIRST
+========================================================= */
+
+.additional-experience-clean-card {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* FOTO DI ATAS */
+
+.additional-experience-clean-card
+.additional-experience-visual {
+  order: 1;
+}
+
+
+/* TEXT DI BAWAH */
+
+.additional-experience-clean-card
+.additional-experience-copy {
+  order: 2;
+
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+
+/* META */
+
+.additional-experience-clean-card
+.additional-experience-meta {
+  margin-bottom: 17px;
+}
+
+
+/* ROLE */
+
+.additional-experience-clean-card
+.additional-experience-role {
+  margin-bottom: 7px;
+}
+
+
+/* TITLE */
+
+.additional-experience-clean-card
+.additional-experience-copy h4 {
+  margin-bottom: 10px;
+
+  font-size: 36px;
+  line-height: 1.05;
+}
+
+
+/* DESCRIPTION */
+
+.additional-experience-clean-card
+.additional-experience-copy p {
+  max-width: 500px;
+
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+
+/* VIEWS */
+
+.additional-experience-clean-card
+.additional-experience-views {
+  margin-top: 12px;
+}
+
+
+/* IMAGE */
+
+.additional-experience-clean-card
+.additional-experience-image {
+  height: 300px;
+  border-radius: 22px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .additional-experience-clean-card
+  .additional-experience-image {
+    height: 240px;
+    border-radius: 18px;
+  }
+
+  .additional-experience-clean-card
+  .additional-experience-copy h4 {
+    font-size: 31px;
+  }
+
+}
+
+/* =========================================================
    MOBILE PROJECTS
 ========================================================= */
 
@@ -3958,24 +4063,46 @@ img {
   }
 }
 
+/* =========================
+   PROJECT GALLERY MODAL
+========================= */
+
 .gallery-modal-overlay {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background: rgba(20, 18, 19, 0.92);
+
+  background: rgba(20, 18, 19, 0.94);
+
+  overflow-y: auto;
+  padding: 70px 30px 60px;
 
   display: flex;
-  align-items: center;
   justify-content: center;
-
-  padding: 40px;
+  align-items: flex-start;
 }
 
 .gallery-modal {
   position: relative;
 
   width: 100%;
-  height: 100%;
+  max-width: 1100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+.gallery-image-area {
+  position: relative;
+
+  width: 100%;
+  min-height: 70vh;
 
   display: flex;
   align-items: center;
@@ -3985,8 +4112,8 @@ img {
 .gallery-modal-image {
   display: block;
 
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 82%;
+  max-height: 72vh;
 
   width: auto;
   height: auto;
@@ -3994,42 +4121,18 @@ img {
   object-fit: contain;
 }
 
-/* X */
+
+/* =========================
+   CLOSE
+========================= */
 
 .gallery-modal-close {
   position: fixed;
+
   top: 25px;
   right: 30px;
 
-  z-index: 10;
-
-  width: 45px;
-  height: 45px;
-
-  border: none;
-  border-radius: 50%;
-
-  background: rgba(255, 255, 255, 0.9);
-
-  font-size: 30px;
-  line-height: 1;
-
-  cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* PANAH */
-
-.gallery-modal-arrow {
-  position: fixed;
-
-  top: 50%;
-  transform: translateY(-50%);
-
-  z-index: 10;
+  z-index: 100;
 
   width: 55px;
   height: 55px;
@@ -4037,7 +4140,48 @@ img {
   border: none;
   border-radius: 50%;
 
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
+
+  color: #1f1b1c;
+
+  font-size: 32px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.2s ease;
+}
+
+.gallery-modal-close:hover {
+  transform: scale(1.05);
+}
+
+
+/* =========================
+   ARROWS
+========================= */
+
+.gallery-modal-arrow {
+  position: fixed;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  z-index: 100;
+
+  width: 58px;
+  height: 58px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  color: #1f1b1c;
 
   font-size: 25px;
 
@@ -4046,6 +4190,12 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition: transform 0.2s ease;
+}
+
+.gallery-modal-arrow:hover {
+  transform: translateY(-50%) scale(1.05);
 }
 
 .gallery-modal-prev {
@@ -4056,12 +4206,15 @@ img {
   right: 30px;
 }
 
-/* NOMOR */
+
+/* =========================
+   COUNTER
+========================= */
 
 .gallery-modal-counter {
-  position: fixed;
+  position: absolute;
 
-  bottom: 25px;
+  bottom: 10px;
   left: 50%;
 
   transform: translateX(-50%);
@@ -4072,41 +4225,210 @@ img {
   letter-spacing: 0.15em;
 }
 
-/* MOBILE */
+
+/* =========================
+   PROJECT INFO CARD
+========================= */
+
+.gallery-project-info {
+  width: 100%;
+  max-width: 900px;
+
+  margin-top: 35px;
+  padding: 40px 45px;
+
+  background: var(--paper);
+
+  border-radius: 24px;
+
+  color: var(--ink);
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+
+/* TITLE */
+
+.gallery-project-heading {
+  margin-bottom: 32px;
+
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.gallery-project-category {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--gray);
+
+  font-size: 10px;
+  letter-spacing: 0.15em;
+}
+
+.gallery-project-heading h2 {
+  margin: 0;
+
+  color: var(--ink);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(32px, 5vw, 55px);
+
+  font-weight: 400;
+}
+
+
+/* =========================
+   INFO SECTIONS
+========================= */
+
+.gallery-project-section {
+  margin-bottom: 28px;
+}
+
+.gallery-project-label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: var(--gray);
+
+  font-size: 9px;
+  letter-spacing: 0.16em;
+}
+
+.gallery-project-section p {
+  max-width: 720px;
+
+  margin: 0;
+
+  color: var(--ink);
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+/* =========================
+   ROLE + TOOLS
+========================= */
+
+.gallery-project-details {
+  display: grid;
+
+  grid-template-columns: 180px 1fr;
+
+  gap: 40px;
+
+  margin-bottom: 5px;
+}
+
+
+/* ROLE */
+
+.gallery-project-details
+.gallery-project-section p {
+  font-weight: 500;
+}
+
+
+/* TOOLS */
+
+.gallery-project-tools {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.gallery-project-tools span {
+  padding: 8px 13px;
+
+  background: transparent;
+
+  border: 1px solid var(--line);
+  border-radius: 100px;
+
+  color: var(--ink);
+
+  font-size: 10px;
+}
+
+
+/* =========================
+   PROCESS
+========================= */
+
+.gallery-project-process {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  gap: 12px;
+
+  color: var(--ink);
+
+  font-size: 12px;
+}
+
+.gallery-project-process b {
+  color: var(--gray);
+
+  font-weight: 400;
+}
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 700px) {
-  .gallery-modal-overlay {
-    padding: 20px;
+
+  .gallery-project-info {
+    width: calc(100% - 10px);
+
+    margin-top: 25px;
+    padding: 28px 24px;
+
+    border-radius: 20px;
   }
 
-  .gallery-modal-image {
-    max-width: 88%;
-    max-height: 82%;
+  .gallery-project-heading {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
   }
 
-  .gallery-modal-close {
-    top: 18px;
-    right: 18px;
-
-    width: 40px;
-    height: 40px;
-
-    font-size: 26px;
+  .gallery-project-heading h2 {
+    font-size: 36px;
   }
 
-  .gallery-modal-arrow {
-    width: 42px;
-    height: 42px;
+  .gallery-project-details {
+    grid-template-columns: 1fr;
 
-    font-size: 20px;
+    gap: 0;
   }
 
-  .gallery-modal-prev {
-    left: 12px;
+  .gallery-project-section {
+    margin-bottom: 25px;
   }
 
-  .gallery-modal-next {
-    right: 12px;
+  .gallery-project-section p {
+    font-size: 13px;
+  }
+
+  .gallery-project-tools {
+    gap: 6px;
+  }
+
+  .gallery-project-tools span {
+    padding: 7px 11px;
+  }
+
+  .gallery-project-process {
+    gap: 8px;
+    line-height: 1.8;
   }
 }
 

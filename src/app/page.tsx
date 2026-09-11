@@ -78,9 +78,9 @@ const mobileProjects: Project[] = [
   ],
 
     description:
-      "Aplikasi mobile yang dirancang untuk membantu pengguna mendapatkan pendampingan secara lebih mudah, terstruktur, dan intuitif.",
-    tools: ["Figma", "User Research", "User Flow", "Wireframing", "Prototype"],
-    process: ["Research", "Define", "Design", "Prototype"],
+      "Dampingin adalah aplikasi mobile yang dibuat untuk membantu pasien yang harus pergi ke rumah sakit seorang diri karena keluarganya tidak dapat menemani akibat kesibukan pekerjaan. Melalui Dampingin, pasien dapat menemukan pendamping yang bisa menemani dan membantu mereka selama berada di rumah sakit.",
+    tools: ["Figma", "User Research", "Empathy Map", "Affinity Diagram", "User Persona", "Information Architecture", "User Flow", "Wireframe", "Prototype", "Maze.co"],
+    process: ["Research", "Understand the Context of Use", "Specify User Requirements", "Design Solutions", "Evaluate Design Against Requirements"],
   },
   {
     title: "Eatzy",
@@ -102,9 +102,9 @@ const mobileProjects: Project[] = [
   ],
 
     description:
-      "Konsep aplikasi mobile yang membantu pengguna menemukan pengalaman kuliner dengan interface yang sederhana dan mudah digunakan.",
-    tools: ["Figma", "User Flow", "UI Design", "Prototyping"],
-    process: ["Research", "User Flow", "Design"],
+  "Konsep aplikasi mobile yang membantu pengguna menemukan pilihan makanan sekaligus memantau asupan nutrisi dan kalori, sehingga dapat membuat pilihan makanan yang lebih sesuai dengan kebutuhan dan gaya hidup pengguna.",
+tools: ["Figma", "UI Design", "Prototype"],
+process: ["Research", "UI Design", "Prototyping"],
   },
   {
     title: "FindCine",
@@ -126,9 +126,9 @@ const mobileProjects: Project[] = [
   ],
 
     description:
-      "Aplikasi mobile untuk membantu pengguna menemukan dan mengeksplorasi film berdasarkan kebutuhan serta preferensi mereka.",
-    tools: ["Figma", "UX Research", "Wireframe", "UI Design", "Prototype"],
-    process: ["Research", "Define", "Design", "Testing"],
+  "Konsep aplikasi mobile yang dirancang untuk memberikan pengalaman menemukan film yang lebih personal dengan menyesuaikan rekomendasi berdasarkan selera dan preferensi pengguna.",
+  tools: ["Figma", "UI Design", "Prototype"],
+    process: [ "UI Design", "Prototyping"],
   },
   {
     title: "Kelana",
@@ -152,8 +152,8 @@ const mobileProjects: Project[] = [
 
     description:
       "Konsep aplikasi perjalanan yang dirancang untuk memberikan pengalaman eksplorasi destinasi secara lebih praktis dan terorganisir.",
-    tools: ["Figma", "User Flow", "Wireframe", "High-Fidelity"],
-    process: ["Research", "Define", "Design"],
+    tools: ["Figma", "Wireframe", "UI Design", "Prototype"],
+    process: ["Wireframing", "UI Design", "Prototyping"],
   },
 ];
 
@@ -176,8 +176,8 @@ const websiteProjects: Project[] = [
 
     description:
       "Website katalog aset yang dirancang untuk membantu pengelolaan dan pencarian data aset secara lebih terstruktur.",
-    tools: ["Figma", "UI Design", "Design System", "Prototype"],
-    process: ["Research", "Information Architecture", "Design"],
+    tools: ["Figma", "Design System", "Wireframe", "UI Design", "Prototype"],
+    process: ["Component Preparation", "Wireframing", "UI Design", "Prototyping", "Testing"],
   },
   {
     title: "Dashboard Sistem Input Data",
@@ -197,8 +197,8 @@ const websiteProjects: Project[] = [
 
     description:
       "Dashboard untuk mendukung proses input dan pengelolaan data dengan tampilan yang lebih terstruktur dan mudah dipahami.",
-    tools: ["Figma", "Dashboard Design", "UI Design", "Prototype"],
-    process: ["Research", "Define", "Design"],
+    tools: ["Figma", "UI Design", "Prototype"],
+    process: [ "Wireframing", "UI Design", "Prototyping"],
   },
   {
     title: "Snapshoot",
@@ -212,8 +212,8 @@ const websiteProjects: Project[] = [
 
     description:
       "Konsep website dengan pendekatan visual editorial yang mengutamakan hierarchy, readability, dan pengalaman pengguna.",
-    tools: ["Figma", "Visual Design", "UI Design", "Prototype"],
-    process: ["Research", "Design", "Prototype"],
+    tools: ["Figma", "UI Design", "Prototype"],
+    process: ["UI Design", "Prototyping"],
   },
 ];
 
@@ -241,7 +241,7 @@ const organizationItems: Organization[] = [
     role: "DIVISI SENIOR PENDAMPING",
     event: "Eksplorasi Diri Sistem Informasi (EDISI)",
     description:
-      "Mendampingi kelompok yang terdiri dari 11 mahasiswa baru selama rangkaian kegiatan. Memberikan evaluasi serta menjadi penghubung komunikasi antara peserta dan panitia.",
+      "Mendampingi kelompok yang terdiri dari 11 mahasiswa baru. Memberikan evaluasi serta menjadi penghubung komunikasi antara peserta dan panitia.",
     images: [
       "/images/edisi1.jpg",
       "/images/edisi2.jpg",
@@ -972,43 +972,98 @@ function ProjectModal({
           ×
         </button>
 
-        {/* IMAGE */}
-        <img
-          className="gallery-modal-image"
-          src={projectImages[currentImage]}
-          alt={`${project.title} ${currentImage + 1}`}
-        />
+        {/* IMAGE AREA */}
+        <div className="gallery-image-area">
+          <img
+            className="gallery-modal-image"
+            src={projectImages[currentImage]}
+            alt={`${project.title} ${currentImage + 1}`}
+          />
 
-        {/* LEFT */}
-        {projectImages.length > 1 && (
-          <button
-            className="gallery-modal-arrow gallery-modal-prev"
-            onClick={previousImage}
-            aria-label="Previous image"
-          >
-            ←
-          </button>
-        )}
+          {/* LEFT */}
+          {projectImages.length > 1 && (
+            <button
+              className="gallery-modal-arrow gallery-modal-prev"
+              onClick={previousImage}
+              aria-label="Previous image"
+            >
+              ←
+            </button>
+          )}
 
-        {/* RIGHT */}
-        {projectImages.length > 1 && (
-          <button
-            className="gallery-modal-arrow gallery-modal-next"
-            onClick={nextImage}
-            aria-label="Next image"
-          >
-            →
-          </button>
-        )}
+          {/* RIGHT */}
+          {projectImages.length > 1 && (
+            <button
+              className="gallery-modal-arrow gallery-modal-next"
+              onClick={nextImage}
+              aria-label="Next image"
+            >
+              →
+            </button>
+          )}
 
-        {/* NUMBER */}
-        {projectImages.length > 1 && (
-          <div className="gallery-modal-counter">
-            {String(currentImage + 1).padStart(2, "0")}
-            {" / "}
-            {String(projectImages.length).padStart(2, "0")}
+          {/* NUMBER */}
+          {projectImages.length > 1 && (
+            <div className="gallery-modal-counter">
+              {String(currentImage + 1).padStart(2, "0")}
+              {" / "}
+              {String(projectImages.length).padStart(2, "0")}
+            </div>
+          )}
+        </div>
+
+        {/* PROJECT INFORMATION */}
+        <div className="gallery-project-info">
+          <div className="gallery-project-heading">
+            <div>
+              <span className="gallery-project-category">
+                {project.category.toUpperCase()}
+              </span>
+
+              <h2>{project.title}</h2>
+            </div>
           </div>
-        )}
+
+          {/* DESCRIPTION */}
+          <div className="gallery-project-section">
+            <span className="gallery-project-label">ABOUT</span>
+            <p>{project.description}</p>
+          </div>
+
+          {/* ROLE + TOOLS */}
+          <div className="gallery-project-details">
+            <div className="gallery-project-section">
+              <span className="gallery-project-label">ROLE</span>
+              <p>UI/UX Designer</p>
+            </div>
+
+            <div className="gallery-project-section">
+              <span className="gallery-project-label">TOOLS</span>
+
+              <div className="gallery-project-tools">
+                {project.tools.map((tool) => (
+                  <span key={tool}>{tool}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* PROCESS */}
+          <div className="gallery-project-section">
+            <span className="gallery-project-label">PROCESS</span>
+
+            <div className="gallery-project-process">
+              {project.process.map((step, index) => (
+                <span key={step}>
+                  {step}
+                  {index < project.process.length - 1 && (
+                    <b>→</b>
+                  )}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -1133,237 +1188,215 @@ function AdditionalExperienceSection() {
         </div>
 
 
-        {/* =================================================
-            ORGANIZATION
-        ================================================= */}
+       {/* =================================================
+    ORGANIZATION
+================================================= */}
 
-        <div className="additional-experience-category">
+<div className="additional-experience-category">
 
-          <div className="additional-experience-category-title">
-            <div>
-              <small>VOLUNTEER</small>
-              <h3>Volunteer</h3>
+  <div className="additional-experience-category-title">
+    <div>
+      <small>VOLUNTEER</small>
+      <h3>Volunteer</h3>
+    </div>
+  </div>
+
+  <div className="additional-experience-grid">
+
+    {organizationItems.map((item) => {
+      const activeIndex =
+        activeImages[`organization-${item.number}`] ?? 0;
+
+      return (
+        <article
+          className="additional-experience-card additional-experience-clean-card"
+          key={`organization-${item.number}`}
+        >
+
+          {/* FOTO */}
+          <div className="additional-experience-visual">
+
+            <div className="additional-experience-image">
+
+              <img
+                src={item.images[activeIndex]}
+                alt={`${item.event} activity`}
+              />
+
+              {item.images.length > 1 && (
+                <span className="additional-experience-image-number">
+                  {String(activeIndex + 1).padStart(2, "0")}
+                  {" / "}
+                  {String(item.images.length).padStart(2, "0")}
+                </span>
+              )}
+
+              {item.images.length > 1 && (
+                <div className="additional-experience-arrows">
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      changeImage(
+                        `organization-${item.number}`,
+                        item.images.length,
+                        -1
+                      )
+                    }
+                    aria-label="Previous image"
+                  >
+                    ←
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      changeImage(
+                        `organization-${item.number}`,
+                        item.images.length,
+                        1
+                      )
+                    }
+                    aria-label="Next image"
+                  >
+                    →
+                  </button>
+
+                </div>
+              )}
+
             </div>
-          </div>
-
-
-          <div className="additional-experience-grid">
-
-            {organizationItems.map((item) => {
-              const activeIndex =
-                activeImages[`organization-${item.number}`] ?? 0;
-
-              return (
-                <article
-                  className="additional-experience-card"
-                  key={`organization-${item.number}`}
-                >
-
-                  {/* TEXT */}
-                  <div className="additional-experience-copy">
-
-                    <div className="additional-experience-meta">
-                      <span>{item.number}</span>
-                      <span>{item.date}</span>
-                    </div>
-
-                    <span className="additional-experience-role">
-                      {item.role}
-                    </span>
-
-                    <h4>{item.event}</h4>
-
-                    <p>{item.description}</p>
-
-                  </div>
-
-
-                  {/* FOTO */}
-                  <div className="additional-experience-visual">
-
-                    <div className="additional-experience-image">
-
-                      <img
-                        src={item.images[activeIndex]}
-                        alt={`${item.event} activity`}
-                      />
-
-
-                      {/* IMAGE NUMBER */}
-                      {item.images.length > 1 && (
-                        <span className="additional-experience-image-number">
-                          {String(activeIndex + 1).padStart(2, "0")}
-                          {" / "}
-                          {String(item.images.length).padStart(2, "0")}
-                        </span>
-                      )}
-
-
-                      {/* ARROWS */}
-                      {item.images.length > 1 && (
-                        <div className="additional-experience-arrows">
-
-                          <button
-                            type="button"
-                            onClick={() =>
-                              changeImage(
-                                `organization-${item.number}`,
-                                item.images.length,
-                                -1
-                              )
-                            }
-                            aria-label="Previous image"
-                          >
-                            ←
-                          </button>
-
-                          <button
-                            type="button"
-                            onClick={() =>
-                              changeImage(
-                                `organization-${item.number}`,
-                                item.images.length,
-                                1
-                              )
-                            }
-                            aria-label="Next image"
-                          >
-                            →
-                          </button>
-
-                        </div>
-                      )}
-
-                    </div>
-
-                  </div>
-
-                </article>
-              );
-            })}
 
           </div>
-        </div>
 
 
-        {/* =================================================
-            TALENT MODEL
-        ================================================= */}
+          {/* TEXT */}
+<div className="additional-experience-copy">
 
-        <div className="additional-experience-category">
+  <div className="additional-experience-meta">
+    <span>{item.role}</span>
+    <span>{item.date}</span>
+  </div>
 
-          <div className="additional-experience-category-title">
-            <div>
-              <small>TALENT MODEL</small>
-              <h3>Talent Model</h3>
+  <h4>{item.event}</h4>
+
+  <p>{item.description}</p>
+
+</div>
+        </article>
+      );
+    })}
+
+  </div>
+</div>
+
+
+{/* =================================================
+    TALENT MODEL
+================================================= */}
+
+<div className="additional-experience-category">
+
+  <div className="additional-experience-category-title">
+    <div>
+      <small>TALENT MODEL</small>
+      <h3>Talent Model</h3>
+    </div>
+  </div>
+
+  <div className="additional-experience-grid">
+
+    {creativeItems.map((item) => {
+      const activeIndex =
+        activeImages[`creative-${item.number}`] ?? 0;
+
+      return (
+        <article
+          className="additional-experience-card additional-experience-clean-card"
+          key={`creative-${item.number}`}
+        >
+
+          {/* FOTO */}
+          <div className="additional-experience-visual">
+
+            <div className="additional-experience-image">
+
+              <img
+                src={item.images[activeIndex]}
+                alt={item.title}
+              />
+
+              {item.images.length > 1 && (
+                <span className="additional-experience-image-number">
+                  {String(activeIndex + 1).padStart(2, "0")}
+                  {" / "}
+                  {String(item.images.length).padStart(2, "0")}
+                </span>
+              )}
+
+              {item.images.length > 1 && (
+                <div className="additional-experience-arrows">
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      changeImage(
+                        `creative-${item.number}`,
+                        item.images.length,
+                        -1
+                      )
+                    }
+                    aria-label="Previous image"
+                  >
+                    ←
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      changeImage(
+                        `creative-${item.number}`,
+                        item.images.length,
+                        1
+                      )
+                    }
+                    aria-label="Next image"
+                  >
+                    →
+                  </button>
+
+                </div>
+              )}
+
             </div>
-          </div>
-
-
-          <div className="additional-experience-grid">
-
-            {creativeItems.map((item) => {
-              const activeIndex =
-                activeImages[`creative-${item.number}`] ?? 0;
-
-              return (
-                <article
-                  className="additional-experience-card"
-                  key={`creative-${item.number}`}
-                >
-
-                  {/* TEXT */}
-                  <div className="additional-experience-copy">
-
-                    <div className="additional-experience-meta">
-                      <span>{item.number}</span>
-                      <span>{item.date}</span>
-                    </div>
-
-                    <span className="additional-experience-role">
-                      {item.role}
-                    </span>
-
-                    <h4>{item.title}</h4>
-
-                    <p>{item.description}</p>
-
-                    {item.views && (
-                      <strong className="additional-experience-views">
-                        {item.views}
-                      </strong>
-                    )}
-
-                  </div>
-
-
-                  {/* FOTO */}
-                  <div className="additional-experience-visual">
-
-                    <div className="additional-experience-image">
-
-                      <img
-                        src={item.images[activeIndex]}
-                        alt={item.title}
-                      />
-
-
-                      {/* IMAGE NUMBER */}
-                      {item.images.length > 1 && (
-                        <span className="additional-experience-image-number">
-                          {String(activeIndex + 1).padStart(2, "0")}
-                          {" / "}
-                          {String(item.images.length).padStart(2, "0")}
-                        </span>
-                      )}
-
-
-                      {/* ARROWS */}
-                      {item.images.length > 1 && (
-                        <div className="additional-experience-arrows">
-
-                          <button
-                            type="button"
-                            onClick={() =>
-                              changeImage(
-                                `creative-${item.number}`,
-                                item.images.length,
-                                -1
-                              )
-                            }
-                            aria-label="Previous image"
-                          >
-                            ←
-                          </button>
-
-                          <button
-                            type="button"
-                            onClick={() =>
-                              changeImage(
-                                `creative-${item.number}`,
-                                item.images.length,
-                                1
-                              )
-                            }
-                            aria-label="Next image"
-                          >
-                            →
-                          </button>
-
-                        </div>
-                      )}
-
-                    </div>
-
-                  </div>
-
-                </article>
-              );
-            })}
 
           </div>
-        </div>
 
+
+          {/* TEXT */}
+<div className="additional-experience-copy">
+
+  <div className="additional-experience-meta">
+    <span>{item.role}</span>
+    <span>{item.date}</span>
+  </div>
+
+  <h4>{item.title}</h4>
+
+  {item.views && (
+    <strong className="additional-experience-views">
+      {item.views}
+    </strong>
+  )}
+
+</div>
+
+        </article>
+      );
+    })}
+
+  </div>
+</div>
       </div>
     </section>
   );

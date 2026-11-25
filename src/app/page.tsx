@@ -6,7 +6,6 @@ import {
   SiMaze,
   SiClickup,
   SiNotion,
-  SiVscodium,
   SiAndroidstudio,
   SiXampp,
   SiFlutter,
@@ -20,6 +19,7 @@ import {
   SiJira,
 } from "react-icons/si";
 import { FaPalette, FaSlack } from "react-icons/fa";
+import { VscVscode } from "react-icons/vsc";
 
 /* =========================================================
    TYPES
@@ -329,12 +329,12 @@ function Navbar() {
             Skills
           </a>
 
-          <a href="#additional-experience" onClick={closeMenu}>
-            Additional Experience
-          </a>
-
           <a href="#background" onClick={closeMenu}>
             Background
+          </a>
+
+          <a href="#additional-experience" onClick={closeMenu}>
+            Additional Experience
           </a>
 
           <a href="#contact" onClick={closeMenu}>
@@ -723,7 +723,7 @@ function SkillsSection() {
   { name: "Figma", icon: <SiFigma /> },
   { name: "Maze", icon: <SiMaze /> },
   { name: "Canva", icon: <FaPalette /> },
-  { name: "VS Code", icon: <SiVscodium /> },
+  { name: "VS Code", icon: <VscVscode /> },
   { name: "Android Studio", icon: <SiAndroidstudio /> },
   { name: "XAMPP", icon: <SiXampp /> },
   { name: "Jira", icon: <SiJira /> },
@@ -739,8 +739,8 @@ function SkillsSection() {
       <div className="skills-heading">
         <div className="skills-title">
           <h2>
-            <i>Tools</i>{" "}
-            I work with
+            <i>Skills</i>{" "}
+            &amp; Tools
           </h2>
         </div>
 
@@ -1497,6 +1497,40 @@ function BackgroundSection() {
               </div>
             </article>
 
+                        {/* CERTIFICATION */}
+            <div className="education-header certification-header">
+              <span>CERTIFICATION</span>
+            </div>
+
+            <article className="education-item">
+              <div className="education-year">
+                2025
+              </div>
+
+              <div className="education-info">
+                <small>
+                  Badan Nasional Sertifikasi Profesi (BNSP)
+                </small>
+
+                <h3>
+                  Junior Web Programmer
+                </h3>
+
+                <p>
+                  Tersertifikasi dalam kompetensi pemrograman web,
+                  meliputi implementasi antarmuka pengguna,
+                  pemrograman terstruktur, debugging, dan
+                  dokumentasi perangkat lunak.
+                </p>
+
+                <div className="education-line" />
+
+                <span className="education-focus">
+                  November 2025
+                </span>
+              </div>
+            </article>
+
           </div>
 
         </div>
@@ -1626,13 +1660,13 @@ export default function Home() {
         {/* 04 — SKILLS */}
         <SkillsSection />
 
-        {/* 05 — ORGANIZATION */}
-        <AdditionalExperienceSection />
-
-        {/* 06 — BACKGROUND */}
+        {/* 05 — BACKGROUND */}
         <BackgroundSection />
 
-        {/* 08 — CONTACT */}
+        {/* 06 — ORGANIZATION */}
+        <AdditionalExperienceSection />
+
+        {/* 07 — CONTACT */}
         <ContactSection />
 
       </main>

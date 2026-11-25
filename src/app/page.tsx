@@ -17,8 +17,9 @@ import {
   SiJavascript,
   SiLaravel,
   SiNextdotjs,
+  SiJira,
 } from "react-icons/si";
-import { FaPalette } from "react-icons/fa";
+import { FaPalette, FaSlack } from "react-icons/fa";
 
 /* =========================================================
    TYPES
@@ -374,7 +375,7 @@ function AboutSection() {
           <div className="hero-role">
     <span>UI/UX <b>Designer</b></span>
   <span className="role-divider">|</span>
-  <span>Frontend <b>Developer</b></span>
+  <span>Product <b>Designer</b></span>
 </div>
 
           <p className="hero-description">
@@ -461,6 +462,20 @@ function ExperienceSection() {
 
             <InternshipCard
               number="01"
+              date="OKTOBER 2026 — SEKARANG · REMOTE"
+              role="PRODUCT DESIGNER"
+              company="PT Justika Siar Publika (Hukumonline)"
+              division="Divisi Product Designer"
+              images={[
+                "/images/hukumonline.jpg",
+                "/images/hukumonline1.jpg",
+                "/images/hukumonline2.jpg",
+                "/images/hukumonline3.jpg",
+              ]}
+            />
+
+            <InternshipCard
+              number="02"
               date="FEBRUARI 2025 — JUNI 2025"
               role="UI/UX DESIGNER"
               company="Dinas Kependudukan dan Pencatatan Sipil Kota Surabaya"
@@ -475,7 +490,7 @@ function ExperienceSection() {
             />
 
             <InternshipCard
-              number="02"
+              number="03"
               date="OKTOBER 2024 — JANUARI 2025"
               role="UI/UX DESIGNER"
               company="PT Perkebunan Nusantara I Regional 4"
@@ -677,14 +692,20 @@ function MarqueeSection() {
 
 function SkillsSection() {
   const designSkills = [
-    { name: "UI Design", icon: "✦" },
-    { name: "User Research", icon: "○" },
-    { name: "User Flow", icon: "⌁" },
-    { name: "Wireframing", icon: "⊞" },
-    { name: "High-Fidelity Design", icon: "▱" },
-    { name: "Prototyping", icon: "▷" },
-    { name: "Usability Testing", icon: "⌁" },
-    { name: "Design System", icon: "▱" },
+  { name: "User Research", icon: "○" },
+  { name: "User Centered Design", icon: "◎" },
+  { name: "Design Thinking", icon: "✦" },
+  { name: "User Persona", icon: "◇" },
+  { name: "Information Architecture", icon: "☰" },
+  { name: "User Flow", icon: "⌁" },
+  { name: "Wireframing", icon: "⊞" },
+  { name: "Prototyping", icon: "▷" },
+  { name: "Design System", icon: "▱" },
+  { name: "Design Token", icon: "◈" },
+  { name: "Component Library", icon: "❖" },
+  { name: "Usability Testing", icon: "✓" },
+  { name: "UI/UX Audit", icon: "⌕" },
+  { name: "Benchmarking", icon: "⇄" },
   ];
 
   const developmentSkills = [
@@ -700,13 +721,15 @@ function SkillsSection() {
 
    const toolsSkills = [
   { name: "Figma", icon: <SiFigma /> },
-  { name: "Canva", icon: <FaPalette /> },
   { name: "Maze", icon: <SiMaze /> },
-  { name: "ClickUp", icon: <SiClickup /> },
-  { name: "Notion", icon: <SiNotion /> },
+  { name: "Canva", icon: <FaPalette /> },
   { name: "VS Code", icon: <SiVscodium /> },
   { name: "Android Studio", icon: <SiAndroidstudio /> },
   { name: "XAMPP", icon: <SiXampp /> },
+  { name: "Jira", icon: <SiJira /> },
+  { name: "ClickUp", icon: <SiClickup /> },
+  { name: "Notion", icon: <SiNotion /> },
+  { name: "Slack", icon: <FaSlack /> },
 ];
 
   return (

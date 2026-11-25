@@ -1436,7 +1436,7 @@ function BackgroundSection() {
         {/* HEADER */}
         <div className="background-heading">
           <h2>
-            My <i>Background.</i>
+            My <i>Background</i>
           </h2>
         </div>
 
